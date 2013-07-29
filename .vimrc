@@ -37,5 +37,9 @@ set tabstop=4
 "カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
+"netrwの初期状態でツリー表示
 let g:netrw_liststyle = 3
+
+"pathogen
+execute pathogen#infect()
 
