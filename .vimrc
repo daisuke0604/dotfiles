@@ -40,6 +40,9 @@ set whichwrap=b,s,h,l,<,>,[,]
 "netrwの初期状態でツリー表示
 let g:netrw_liststyle = 3
 
+"マウス連携
+set mouse=a
+
 "pathogen
 execute pathogen#infect()
 
