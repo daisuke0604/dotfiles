@@ -1,7 +1,7 @@
 "構文ごとに色分けを行う
 syntax on
 "カラースキーマ
-colorscheme zenburn
+colorscheme hybrid
 
 "バッファ切り替え
 cmap bb :ls<CR>:buf 
@@ -36,12 +36,18 @@ set smarttab
 set tabstop=4
 "カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
+"マウス連携
+set mouse=a
+"ステータス行を常に表示
+set laststatus=2
 
 "netrwの初期状態でツリー表示
 let g:netrw_liststyle = 3
 
-"マウス連携
-set mouse=a
+"lightline
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ }
 
 "pathogen
 execute pathogen#infect()
