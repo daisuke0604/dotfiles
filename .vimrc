@@ -1,3 +1,9 @@
+"neobundle
+if has('vim_starting')
+    set nocompatible               " Be iMproved
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
 "構文ごとに色分けを行う
 syntax on
 "カラースキーマ
@@ -60,12 +66,6 @@ let g:netrw_liststyle = 3
 let g:lightline = {
     \ 'colorscheme': 'jellybeans',
     \ }
-
-"neobundle
-if has('vim_starting')
-    set nocompatible               " Be iMproved
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
