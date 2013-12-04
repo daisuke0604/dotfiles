@@ -4,7 +4,7 @@ syntax on
 colorscheme hybrid
 
 "バッファ切り替え
-cmap bb :ls<CR>:buf 
+cmap bb :ls<CR>:buf
 
 "新しい行のインデントを現在行と同じにする
 set autoindent
@@ -40,6 +40,15 @@ set whichwrap=b,s,h,l,<,>,[,]
 set mouse=a
 "ステータス行を常に表示
 set laststatus=2
+
+"保存時に行末の空白を除去
+function! s:remove_eol_spaces()
+    let cursor = getpos(".")
+    %s/\s\+$//ge
+    call setpos(".", cursor)
+    unlet cursor
+endfunction
+autocmd BufWritePre * call <SID>remove_eol_spaces()
 
 "makefileでexpandtabを無効にする
 autocmd FileType make setlocal noexpandtab
