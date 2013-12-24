@@ -46,6 +46,9 @@ set whichwrap=b,s,h,l,<,>,[,]
 set mouse=a
 "ステータス行を常に表示
 set laststatus=2
+"カレント行ハイライト
+set cursorline
+
 
 "保存時に行末の空白を除去
 function! s:remove_eol_spaces()
