@@ -47,8 +47,9 @@ set mouse=a
 "ステータス行を常に表示
 set laststatus=2
 "カレント行ハイライト
-set cursorline
-
+"set cursorline
+"スクロール送り
+set scrolloff=10
 
 "保存時に行末の空白を除去
 function! s:remove_eol_spaces()
@@ -69,6 +70,10 @@ let g:netrw_liststyle = 3
 let g:lightline = {
     \ 'colorscheme': 'jellybeans',
     \ }
+
+
+"simple-javascript-indenter
+let g:SimpleJsIndenter_BriefMode = 1
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
@@ -94,6 +99,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 
 NeoBundle 'w0ng/vim-hybrid'
+
+NeoBundle 'mattn/emmet-vim'
 
 filetype plugin indent on     " Required!
 "

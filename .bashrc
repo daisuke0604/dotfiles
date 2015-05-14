@@ -105,7 +105,12 @@ fi
 export TERM=xterm-256color
 export EDITOR=vi
 
+# nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+#rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
 
 # z
 . ~/bin/z.sh
