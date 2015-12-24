@@ -1,13 +1,22 @@
 "neobundle
+if 0 | endif
+
 if has('vim_starting')
-    set nocompatible               " Be iMproved
+    if &compatible
+      set nocompatible               " Be iMproved
+    endif
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 "構文ごとに色分けを行う
 syntax on
 "カラースキーマ
+set background=dark
 colorscheme hybrid
+
+"カーソル行ハイライト
+set cursorline
+hi clear CursorLine
 
 "バッファ切り替え
 cmap bb :ls<CR>:buf
@@ -75,7 +84,7 @@ let g:lightline = {
 "simple-javascript-indenter
 let g:SimpleJsIndenter_BriefMode = 1
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 "Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -101,6 +110,8 @@ NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'w0ng/vim-hybrid'
 
 NeoBundle 'mattn/emmet-vim'
+
+call neobundle#end()
 
 filetype plugin indent on     " Required!
 "
