@@ -1,25 +1,45 @@
-"neobundle
-if 0 | endif
-
-if has('vim_starting')
-    if &compatible
-      set nocompatible               " Be iMproved
-    endif
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
+
+" Required:
+set runtimepath+=~/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/home/pi/dein')
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" Add or remove your plugins here:
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('itchyny/lightline.vim')
+call dein#add('jiangmiao/simple-javascript-indenter')
+call dein#add('mattn/emmet-vim')
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 
 "構文ごとに色分けを行う
 syntax on
 "カラースキーマ
-set background=dark
-colorscheme hybrid
+colorscheme zenburn
 
 "カーソル行ハイライト
 set cursorline
-hi clear CursorLine
-
-"バッファ切り替え
-cmap bb :ls<CR>:buf
 
 "新しい行のインデントを現在行と同じにする
 set autoindent
@@ -52,11 +72,9 @@ set tabstop=4
 "カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 "マウス連携
-set mouse=a
+set mouse=
 "ステータス行を常に表示
 set laststatus=2
-"カレント行ハイライト
-"set cursorline
 "スクロール送り
 set scrolloff=10
 
@@ -80,46 +98,6 @@ let g:lightline = {
     \ 'colorscheme': 'jellybeans',
     \ }
 
-
 "simple-javascript-indenter
 let g:SimpleJsIndenter_BriefMode = 1
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-"Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-"Recommended to install
-"After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc', {
-            \ 'build': {
-            \   'windows': 'make -f make_mingw32.mak',
-            \   'cygwin': 'make -f make_cygwin.mak',
-            \   'mac': 'make -f make_mac.mak',
-            \   'unix': 'make -f make_unix.mak',
-            \ },
-            \}
-
-"My Bundles here:
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'itchyny/lightline.vim'
-
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-
-NeoBundle 'w0ng/vim-hybrid'
-
-NeoBundle 'mattn/emmet-vim'
-
-call neobundle#end()
-
-filetype plugin indent on     " Required!
-"
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
-"Installation check.
-NeoBundleCheck
 
