@@ -93,6 +93,17 @@ autocmd FileType make setlocal noexpandtab
 "netrwの初期状態でツリー表示
 let g:netrw_liststyle = 3
 
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
+
+" SuperTab like snippets behavior.
+imap <expr><TAB>
+\ pumvisible() ? "\<C-n>" :
+\ neosnippet#expandable_or_jumpable() ?
+\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 "lightline
 let g:lightline = {
     \ 'colorscheme': 'jellybeans',
