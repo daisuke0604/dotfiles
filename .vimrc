@@ -19,6 +19,7 @@ call dein#add('Shougo/neosnippet-snippets')
 call dein#add('itchyny/lightline.vim')
 call dein#add('jiangmiao/simple-javascript-indenter')
 call dein#add('mattn/emmet-vim')
+call dein#add('tpope/vim-fugitive')
 
 " Required:
 call dein#end()
