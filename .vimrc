@@ -97,6 +97,16 @@ autocmd FileType make setlocal noexpandtab
 
 "netrwの初期状態でツリー表示
 let g:netrw_liststyle = 3
+"netrwフィルタ定義
+let g:netrw_list_hide='\.o$,\.d$,GTAGS,GPATH,GRTAGS,GSYMS'
+
+" Gtags
+nmap <C-g> :Gtags -g
+nmap <C-l> :Gtags -f %<CR>
+nmap <C-j> :Gtags <C-r><C-w><CR>
+nmap <C-k> :Gtags -r <C-r><C-w><CR>
+nmap <C-n> :cn<CR>
+nmap <C-p> :cp<CR>
 
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
